@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg-page: #f1f5f9;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-sub: #64748b;
+            --accent-green: #10b981;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header-title h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0;
+            color: var(--text-main);
+        }
+
+        .header-title p {
+            margin: 5px 0 0 0;
+            color: var(--text-sub);
+        }
+
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .kpi-card {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        .kpi-label {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 8px;
+        }
+
+        .kpi-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .kpi-trend {
+            font-size: 12px;
+            color: var(--accent-green);
+            margin-left: 5px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+        }
+
+        .chart-card {
+            background-color: var(--bg-card);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .section-header {
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section-subtitle {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 450px; 
+            border-radius: 12px;
+            background-color: #fff;
+            overflow: hidden; 
+            position: relative;
+            border: 1px solid #f1f5f9;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: calc(100% + 20px); 
+            height: calc(100% + 60px); 
+            border: none;
+        }
+
+        @media (max-width: 1024px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .kpi-row { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-area">
+            <div class="header-title">
+                <h1>Fitness Analytics Dashboard</h1>
+                <p>สรุปผลการดำเนินงานและพฤติกรรมสมาชิกรายไตรมาส</p>
+            </div>
+        </div>
+
+        <div class="kpi-row">
+            <div class="kpi-card">
+                <div class="kpi-label">จำนวนสมาชิกทั้งหมด</div>
+                <div class="kpi-value">973 <span class="kpi-trend">↑ 8%</span></div>
+            </div>
+            <div class="kpi-card" style="border-bottom-color: #8b5cf6;">
+                <div class="kpi-label">ประเภทที่นิยมสูงสุด</div>
+                <div class="kpi-value">HIIT & Yoga</div>
+            </div>
+            <div class="kpi-card" style="border-bottom-color: #10b981;">
+                <div class="kpi-label">เป้าหมาย BMI ปกติ</div>
+                <div class="kpi-value">42.5%</div>
+            </div>
+            <div class="kpi-card" style="border-bottom-color: #f59e0b;">
+                <div class="kpi-label">ความพึงพอใจเฉลี่ย</div>
+                <div class="kpi-value">4.8 / 5.0</div>
+            </div>
+        </div>
+
+        <div class="dashboard-grid">
+            
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">สัดส่วนจำนวนสมาชิกตามเพศ</h2>
+                    <p class="section-subtitle">Demographic Distribution by Gender</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_0hpjbli60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">ช่วงอายุของผู้ใช้บริการ</h2>
+                    <p class="section-subtitle">Age Group Analysis</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_i237hmi60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">การจัดกลุ่มสมาชิกตามเกณฑ์ BMI</h2>
+                    <p class="section-subtitle">Health Profile Classification</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_n4fg5mi60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">ระดับประสบการณ์การออกกำลังกาย</h2>
+                    <p class="section-subtitle">Member Expertise Levels</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_lyeiwli60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">ความนิยมในประเภทการออกกำลังกาย</h2>
+                    <p class="section-subtitle">Most Popular Workout Types</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_o22jipi60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="section-header">
+                    <h2 class="section-title">ระดับการเผาผลาญ (Kcals) ตามเพศ</h2>
+                    <p class="section-subtitle">Calorie Burned Performance</p>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="https://lookerstudio.google.com/embed/reporting/39fcde92-a347-45c4-93dc-ad2341d35970/page/p_pywi9oi60d" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
